@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>News</title>
+
+</head>
+<body>
+  
+
+  
+    <div data-role="page" id="pg_news">
+
+        <div class="pageViewContent">
+
+
+            <div data-role="header">
+                <a href="#" class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext headerMenuHome"></a>
+                <h1 id="newsHeader">News</h1>
+                <a href="#" class="ui-btn ui-btn-b ui-icon-refresh ui-btn-icon-notext refreshNewsItems "></a>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+           
+                <div class="newsItemSubView noNewsItemsView" style="display:none">
+
+                    <div class="ui-bar ui-bar-h">
+                        <div style="text-align:center">No News</div>
+                    </div>
+                    <div class="ui-content ui-body-h" style="font-size:small">
+                        There are no new news items available for your profile. There are three reasons this could be the case:
+
+                        <ol>
+                            <li>
+                                <p>
+                                    You have unsubscribed from all news channels available for this application. You can manage your subscriptions from the
+                                    home page or by <a href="#" class="btnNewsManageSubs">click here</a>.
+                                </p>
+                            </li>
+                            <li>
+                                
+                                <p>
+                                    There are no new news items that have been posted to the channels you have subscibed to. If you have marked a news item as "read" it
+                                    will not appear in this list.
+                                </p>
+                                
+                            </li>
+                            <li>
+                                <p>
+                                    You may need to refresh the news cache for this application. Click the 'refresh' button at the top of this screen.
+                                </p>                            </li>
+                        </ol>
+
+                    </div>
+
+                </div>
+
+                <div class="newsItemSubView noPrayerItemsView" style="display:none">
+
+                    <div class="ui-bar ui-bar-h">
+                        <div style="text-align:center">No Prayer Items</div>
+                    </div>
+                    <div class="ui-content ui-body-h" style="font-size:small">
+                        There are no new prayer items available for your profile. There are three reasons this could be the case:
+
+                        <ol>
+                            <li>
+                                <p>
+                                    You have unsubscribed from all prayer channels available for this application. You can manage your subscriptions from the
+                                    home page or by <a href="#" class="btnNewsManageSubs">click here</a>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    There are no new prayer items that have been posted to the channels you have subscibed to. If you have marked a prayer item as "read" it
+                                    will not appear in this list.
+                                </p>
+                            </li>
+                            <li>
+                                <p>You may need to refresh the prayer cache for this application. Click the 'refresh' button at the top of this screen.</p>
+                            </li>
+                        </ol>
+
+                    </div>
+
+                </div>
+               
+                <div class="newsItemSubView selectedItemView" data-bind="with:pages.news.view" style="display:none">
+
+                    <div style="text-align:center">
+                        <a href="#" class="ui-btn ui-btn-inline ui-icon-carat-l ui-btn-icon-notext ui-corner-all btnPreviousNewsItem"></a>
+                        <span class="newsItemCount"></span>
+                        <a href="#" class="ui-btn ui-btn-inline ui-icon-carat-r ui-btn-icon-notext ui-corner-all btnNextNewsItem"></a>
+                    </div>
+
+
+                    <div id="newsListItem">
+
+
+                        <div data-bind="visible:selectedNewsItem.displayHeader">
+
+                            <div data-bind="visible:selectedNewsItem.headerIsImage()">
+                                <div style="text-align:center; margin:5px">
+                                    <img style="max-width:100%; height:auto" data-bind="attr: {src: selectedNewsItem.headerImageUrl}" />
+                                </div>
+                            </div>
+
+                            <div data-bind="visible:!selectedNewsItem.headerIsImage()">
+                                <iframe width="100%" height="280" data-bind="attr: {src: selectedNewsItem.headerVideoUrl}" frameborder="0" allowfullscreen></iframe>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="ui-bar ui-bar-h">
+                            <div style="text-align:center;" data-bind="html:selectedNewsItem.title"></div>
+                        </div>
+
+                        <div class="ui-content ui-body-h" data-bind="html:selectedNewsItem.tagLine" style="font-size: small;text-align:justify; margin-bottom: 5px">
+
+                        </div>
+
+                        <div data-bind="html:selectedNewsItem.content" style="font-size: small;text-align:justify"></div>
+                        <div style="text-align:center">
+                            <a href="#" class="ui-btn ui-btn-a ui-btn-inline ui-mini btnNewsItemWebUrl">View on Web</a>
+                        </div>
+                        <hr />
+                        <div style="font-size:small; font-style:italic">
+                            <div><strong>Country: </strong><span data-bind="html:selectedNewsItem.country"></span></div>
+                            <div><strong>Type: </strong><span data-bind="html:selectedNewsItem.type"></span></div>
+                            <div><strong>Channel: </strong><span data-bind="html:selectedNewsItem.channelName"></span></div>
+                        </div>
+                    </div>
+
+                </div>
+               
+
+            </div><!-- /content -->
+       
+          
+
+            <div data-role="footer" style="overflow:hidden;" data-position="fixed">
+               
+                <div data-role="navbar">
+                    <ul>
+                        <li><button type="button"  class="newsFooterCmds" id="btnShareNewsItem">Share</button></li>
+                        <li><button type="button" class="refreshNewsItems" >Refresh</button></li>
+                        <li><button type="button" class=" ui-btn ui-btn-a newsFooterCmds" id="btnMarkNewsItemAsRead">I've Read</button></li>
+                        
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /footer -->
+
+
+        
+
+        </div>
+    </div>
+</body>
+</html>
+
+
+

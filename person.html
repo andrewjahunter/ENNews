@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+</head>
+<body>
+  
+
+  
+    <div data-role="page" id="pg_person">
+
+
+
+
+
+        <div class="pageViewContent">
+
+
+            <div data-role="header">
+                <!--<a href="#" class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext headerMenuHome"></a>-->
+                <h1>Personal</h1>
+                
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+
+
+                <div class="personSubView personTryFindView" style="display:none">
+                    <div class="ui-bar ui-bar-h">
+                        <div style="text-align:center">Find Your Information</div>
+                    </div>
+                    <div class="ui-content ui-body-h" style="text-align: center; font-size:small">
+                        Try find your information. Simply enter either your email address or mobile phone number
+                        into the box below and click 'Try find account'. If we find your account we will use that information.
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <div>
+                            <label for="txtPInfoFindAccount">
+                                Email/Mobile Number
+                            </label>
+                        </div>
+                        
+                        <input id="txtPInfoFindAccount" data-clear-btn="true"  placeholder="email or mobile number" />
+                        <button type="button" class="ui-btn ui-btn-a ui-btn-inline " id="btnCheckForAccountCancel">Cancel</button>
+                        <button type="button" class="ui-btn ui-btn-b ui-btn-inline " id="btnCheckForAccount">Try find account</button>
+                    </div>
+
+
+                    <div data-role="popup" id="popupCantFindPInfo" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width: 400px;">
+                        <div data-role="header" data-theme="b">
+                            <h1>Can't Find!</h1>
+                        </div>
+                        <div role="main" class="ui-content ui-body-a">
+                          <p>Using the information you provided we were not able to find a matching account.</p>
+                            <p>Click 'Try Again' to search for another account or click 'Add' to create a new account with your personal information.</p>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" id="btnCantFindInfoTryAgain">Try Again</a>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" id="btnCantFindInfoAdd">Add</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="personSubView personInfoView" style="display:none">
+
+                    <div style="display:none" class="pInfoSynced">
+                        <div class="ui-bar ui-bar-h">
+                            <div style="text-align:center">Personal Info</div>
+                        </div>
+                        <div class="ui-content ui-body-h" style="font-size:small">
+                            This account is an active account on our database. When you are done click 'PROCEED...'
+                           <p style="text-align:center">
+                               <a href="#popupWhyCantIEditInfo" data-rel="popup" data-position-to="window" data-transition="pop">Why can't I edit my information here?</a>
+
+                           </p>
+
+                        </div>
+                    </div>
+
+                    <div style="display:none" id="pInfoNotSynced">
+                        <div class="ui-bar ui-bar-d">
+                            <div style="text-align:center">Personal Info</div>
+                        </div>
+                        <div class="ui-content ui-body-d" style="text-align: center; font-size:small">
+                            This account is has not been synced to our database. Not to worry. Fill out the information below click the 'PROCEED...'.
+                        </div>
+                    </div>
+                 
+
+                    <div class="ui-field-contain">
+                        <div>
+                            <label for="txtPInfoFirstName">
+                                First Name
+                            </label>
+                        </div>
+                        
+                        <input id="txtPInfoFirstName" class="pInfoInput" data-clear-btn="true" data-bind="value: thisPerson.firstName" placeholder="enter your first name" />
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <div>
+                            <label for="txtPInfoFirstName">
+                                Last Name
+                            </label>
+                        </div>
+                        
+                        <input id="txtPInfoLastName" class="pInfoInput" data-clear-btn="true" data-bind="value: thisPerson.lastName" placeholder="enter your surname" />
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <div>
+                            <label for="txtPInfoEmail">Email</label>
+                        </div>
+                        
+                        <input type="email" class="pInfoInput" data-clear-btn="true" data-bind="value: thisPerson.email" id="txtPInfoEmail" value="" />
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <div>
+                            <label for="txtPInfoMobileNumber">Mobile</label>
+                        </div>
+                        
+                        <input type="tel" class="pInfoInput" data-clear-btn="true" data-bind="value:thisPerson.mobileNumber" id="txtPInfoMobileNumber" value="" />
+                    </div>
+                    <button type="button" class="ui-btn ui-btn-b " id="btnOKPgPersonalInfo">Finished</button>
+                   
+
+                    
+
+                   
+
+                
+
+                  
+
+                    <div data-role="popup"  id="popupWhyCantIEditInfo" data-overlay-theme="b" data-theme="a" data-dismissible="false" style="max-width: 400px;">
+                        <div data-role="header" data-theme="b">
+                            <h1>Need To Edit?</h1>
+                        </div>
+                        <div role="main" class="ui-content ui-body-a">
+                            <p>For security reasons we cannot allow personal information to be edited in this application. </p>
+                            <p >
+                                To edit you profile please use any one of our applications that require username and password authentication. More information on these
+                                applications can be found by visting <strong>start.godochurch.com</strong> 
+                            </p>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Ok</a>
+                        </div>
+                    </div>
+
+                    <div data-role="footer" style="overflow:hidden;" data-position="fixed" id="footerPInfo">
+
+                        <div data-role="navbar">
+                            <ul>
+                                <li><button type="button" class="ui-btn ui-btn-a" id="btnFindAnotherAccountPgPersonalInfo">Not You?</button></li>
+                                <li><button type="button" class="ui-btn ui-btn-a" id="btnCancelPgPersonalInfo">Cancel</button></li>
+
+
+                            </ul>
+                        </div><!-- /navbar -->
+                    </div><!-- /footer -->
+                </div>
+
+
+
+            </div>
+            
+           
+       
+
+        </div>
+
+
+
+
+
+
+
+        <div class="pageViewContent">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+        </div><!-- /page -->
+</body>
+</html>
+
+
+
